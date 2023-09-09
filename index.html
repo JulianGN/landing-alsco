@@ -29,6 +29,8 @@
       rel="stylesheet"
     />
     <link href="./fonts/remixicon.css" rel="stylesheet" />
+
+    <script src="./script.js"></script>
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
@@ -42,8 +44,17 @@
     ></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
+    <div id="loading">
+      <div class="lds-ring">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+
     <section>
-      <article class="container-hero">
+      <article class="container-hero" id="hero-top">
         <div class="container-hero-bg">
           <div class="container-images-top">
             <div class="image-top">
@@ -62,7 +73,7 @@
               <img src="./imagens//FotoElipse5.png" />
             </div>
             <div class="image-top">
-              <img src="./imagens//FotoElipse6.png" />
+              <img src="./imagens//FotoElipse6.png" onload="hideLoading()" />
             </div>
           </div>
 
@@ -130,7 +141,7 @@
                 <input required type="text" name="company" id="company" />
               </div>
               <div class="col-md-6 flex-column">
-                <label class="input-required" for="cep">CEP</label>
+                <label class="input-required" for="cep">Cidade / UF</label>
                 <input required type="text" name="cep" id="cep" />
               </div>
               <div class="col-md-6 flex-column">
@@ -153,7 +164,11 @@
               </div>
 
               <div class="w-100 text-right mt-2">
-                <button type="submit" class="btn btn-white">
+                <button
+                  onclick="voltarFormulario()"
+                  type="submit"
+                  class="btn btn-white"
+                >
                   <i class="ri-whatsapp-line"></i> Fale com especialista
                 </button>
               </div>
@@ -182,29 +197,27 @@
       </article>
 
       <article class="container-servicos">
-        <div class="servicos">
+        <div class="servicos max-1400-center">
           <div class="col-md-6">
             <div>
               <div><i class="ri-image-edit-fill"></i></div>
               <div>
-                <h4>Uniformes customizados</h4>
-                <p>Garantia de qualidade na recuperação do material</p>
+                <h4>Uniformes Customizados de Alta Qualidade</h4>
+                <p>
+                  Durabilidade e Qualidade com Rápida Entrega <br />
+                  Produtos em Conformidade com as Principais Normas
+                </p>
               </div>
             </div>
             <div>
               <div><i class="ri-truck-line"></i></div>
               <div>
-                <h4>Rápida entrega</h4>
-                <p>Redução dos custos com aquisição de uniformes</p>
-              </div>
-            </div>
-            <div>
-              <div><i class="ri-shopping-bag-line"></i></div>
-              <div>
-                <h4>Sem lote mínimo</h4>
+                <h4>Sustentabilidade e Responsabilidade Ambiental</h4>
                 <p>
-                  Redução dos custos decorrentes da geração de lixo e descarte
-                  industrial
+                  Redução de Custos com Aquisição de Uniformes<br />
+                  Minimização do Impacto Ambiental<br />
+                  Garantia de Tratamento de Efluentes Líquidos e Resíduos
+                  Sólidos
                 </p>
               </div>
             </div>
@@ -213,31 +226,27 @@
             <div>
               <div><i class="ri-customer-service-line"></i></div>
               <div>
-                <h4>O melhor atendimento do mercado</h4>
-                <p>Padrão de limpeza uniforme dos funcionários</p>
+                <h4>Atendimento Excepcional ao Cliente</h4>
+                <p>
+                  O Melhor Atendimento do Mercado<br />
+                  Excelente Custo-Benefício
+                </p>
               </div>
             </div>
             <div>
               <div><i class="ri-shield-check-line"></i></div>
               <div>
-                <h4>Produtos de acordo com as principais normas</h4>
+                <h4>Identidade, Padronização e Higiene</h4>
                 <p>
-                  Garantia de tratamento dos resíduos sólidos e dos efluentes
-                  líquidos.
+                  Reforço da Identidade Empresarial com a Padronização.<br />
+                  Garantia de Limpeza e Higiene
                 </p>
-              </div>
-            </div>
-            <div>
-              <div><i class="ri-price-tag-3-line"></i></div>
-              <div>
-                <h4>Excelente custo-benefício</h4>
-                <p>Durabilidade</p>
               </div>
             </div>
           </div>
         </div>
         <div class="container-btn-servicos">
-          <button class="btn btn-green">
+          <button onclick="voltarFormulario()" class="btn btn-green">
             <i class="ri-whatsapp-line"></i> Fale conosco
           </button>
         </div>
@@ -277,7 +286,9 @@
         </div>
         <div class="col-md-6">
           <div class="container-white-cta">
-            <button class="btn btn-lg btn-green">consulta gratuita</button>
+            <button onclick="voltarFormulario()" class="btn btn-lg btn-green">
+              consulta gratuita
+            </button>
             <p>
               Nossos especialistas conversarão com você e tirarão todas as
               dúvidas
