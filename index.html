@@ -19,7 +19,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Alsco Uniformes</title>
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/index.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -127,7 +128,11 @@
               entraremos em contato com você em breve. * Indica campos
               obrigatórios.
             </p>
-            <form class="hero-form">
+            <form
+              class="hero-form"
+              id="form-landing"
+              onsubmit="enviarFormulario()"
+            >
               <div class="col-md-6 flex-column">
                 <label class="input-required" for="firstname"> Nome </label>
                 <input required type="text" name="firstname" id="firstname" />
@@ -141,8 +146,8 @@
                 <input required type="text" name="company" id="company" />
               </div>
               <div class="col-md-6 flex-column">
-                <label class="input-required" for="cep">Cidade / UF</label>
-                <input required type="text" name="cep" id="cep" />
+                <label class="input-required" for="cidade">Cidade / UF</label>
+                <input required type="text" name="cidade" id="cidade" />
               </div>
               <div class="col-md-6 flex-column">
                 <label class="input-required" for="phone">Telefone</label>
@@ -164,11 +169,7 @@
               </div>
 
               <div class="w-100 text-right mt-2">
-                <button
-                  onclick="voltarFormulario()"
-                  type="submit"
-                  class="btn btn-white"
-                >
+                <button type="submit" class="btn btn-white">
                   Fale com especialista
                 </button>
               </div>

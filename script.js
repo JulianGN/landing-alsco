@@ -2,10 +2,23 @@ function init() {
   hideLoading();
   loopChangingImg();
   setCurrentYear();
+  preventDefaultForm();
+}
+
+function preventDefaultForm() {
+  document
+    .getElementById("form-landing")
+    .addEventListener("submit", function (event) {
+      event.preventDefault();
+    });
 }
 
 function voltarFormulario() {
   window.scrollTo(0, 0);
+}
+
+function enviarFormulario() {
+  window.location.href = "./email-enviado.html";
 }
 
 function showLoading() {
