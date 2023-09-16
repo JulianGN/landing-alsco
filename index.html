@@ -73,14 +73,14 @@
               <img src="./imagens//FotoElipse5.png" />
             </div>
             <div class="image-top">
-              <img src="./imagens//FotoElipse6.png" onload="hideLoading()" />
+              <img src="./imagens//FotoElipse6.png" onload="init()" />
             </div>
           </div>
 
           <div class="hero-bg flex-column">
             <div class="gradient-bg"></div>
 
-            <ul class="flex-column">
+            <ul>
               <li>Macacões industriais</li>
               <li>Calças e Camisas</li>
               <li>NR 10 Uniforme AntiChamas</li>
@@ -169,30 +169,11 @@
                   type="submit"
                   class="btn btn-white"
                 >
-                  <i class="ri-whatsapp-line"></i> Fale com especialista
+                  Fale com especialista
                 </button>
               </div>
             </form>
           </div>
-        </div>
-      </article>
-
-      <article class="container-flex-half-default container-video">
-        <div class="col-md-6 flex-center">
-          <div class="video">Vídeo aqui</div>
-        </div>
-        <div class="col-md-6">
-          <h2>Somos líderes mundiais em serviços de uniformes</h2>
-          <p>
-            Somos a única empresa no Brasil associada à Micronclean
-            International, a maior organização mundial de lavanderias para
-            Cleanroom. Possui a Certificação ISO 9000 nos segmentos de locação
-            de uniformes para Cleanroom e uniformes e toalhas convencionais, e
-            também a Certificação ISO 14001 para lavagem de toalhas industriais
-            e equipamentos de proteção individual contaminados com alto teor de
-            solventes, óleos e graxas. Somos líder mundial em serviços de
-            uniformes, rouparia e instalações.
-          </p>
         </div>
       </article>
 
@@ -247,14 +228,23 @@
         </div>
         <div class="container-btn-servicos">
           <button onclick="voltarFormulario()" class="btn btn-green">
-            <i class="ri-whatsapp-line"></i> Fale conosco
+            Fale conosco
           </button>
         </div>
       </article>
 
       <article class="container-flex-half-default container-sobre">
         <div class="col-md-6 flex-center">
-          <div class="img-sobre">Imagem aqui</div>
+          <div class="img-sobre">
+            <div
+              class="img-sobre-conteudo img-sobre-1 ativa"
+              style="background-image: url(./imagens/furgao_alsco.jpeg)"
+            ></div>
+            <div
+              class="img-sobre-conteudo img-sobre-2"
+              style="background-image: url(./imagens/fabrica_alsco.jpeg)"
+            ></div>
+          </div>
         </div>
         <div class="col-md-6">
           <h2>Quem somos</h2>
@@ -282,16 +272,18 @@
       <article class="container-flex-half-default container-conclusao">
         <div class="col-md-6">
           <h2>Quer saber mais sobre nossos serviços?</h2>
-          <p>Clique no botão ao lado e fale com o nosso time</p>
+          <p class="text-lg">
+            Clique no botão ao lado e fale com o nosso time.
+          </p>
         </div>
         <div class="col-md-6">
           <div class="container-white-cta">
             <button onclick="voltarFormulario()" class="btn btn-lg btn-green">
-              consulta gratuita
+              Fale conosco
             </button>
-            <p>
+            <p class="text-lg text-center">
               Nossos especialistas conversarão com você e tirarão todas as
-              dúvidas
+              dúvidas.
             </p>
           </div>
         </div>
@@ -299,10 +291,12 @@
 
       <footer>
         <p>
-          <strong> Alsco Toalheiro Brasil Ltda. </strong>
-          - 33.325.184/0001-19
+          <strong>Alsco Uniformes</strong>
         </p>
-        <p>2023 Alsco Inc. Todos os direitos reservados</p>
+        <p>
+          <span id="current-year">2023</span> Alsco. Todos os direitos
+          reservados.
+        </p>
       </footer>
     </section>
   </body>
