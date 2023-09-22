@@ -18,7 +18,7 @@ function voltarFormulario() {
 }
 
 function enviarFormulario() {
-  window.location.href = "./email-enviado.html";
+  sendEmail();
 }
 
 function showLoading() {
@@ -63,13 +63,12 @@ function sendEmail() {
 
   const emailData = {
     msg: `
-    ${firstname}\n
-    ${lastname}\n
-    ${company}\n
-    ${cidade}\n
-    ${phone}\n
-    ${email}\n
-    ${comentarios}\n
+    Nome: ${firstname} ${lastname}\n
+    Empresa: ${company}\n
+    Localização: ${cidade}\n
+    Telefone: ${phone}\n
+    E-mail: ${email}\n
+    Mensagem: ${comentarios}\n
     `,
   };
 
@@ -82,7 +81,7 @@ function sendEmail() {
   })
     .then((response) => {
       if (response.ok) {
-        console.log("E-mail enviado com sucesso");
+        window.location.href = "./email-enviado.html";
       } else {
         console.error("Erro ao enviar o e-mail");
       }
