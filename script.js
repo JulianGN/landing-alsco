@@ -49,3 +49,29 @@ function loopChangingImg() {
 function setCurrentYear() {
   document.getElementById("current-year").innerText = new Date().getFullYear();
 }
+
+function sendEmail(msg) {
+  const apiUrl = "https://aslco-landing-email.onrender.com/send-email";
+
+  const emailData = {
+    msg: msg,
+  };
+
+  fetch(apiUrl, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(emailData),
+  })
+    .then((response) => {
+      if (response.ok) {
+        console.log("E-mail enviado com sucesso");
+      } else {
+        console.error("Erro ao enviar o e-mail");
+      }
+    })
+    .catch((error) => {
+      console.error("Erro de rede:", error);
+    });
+}
