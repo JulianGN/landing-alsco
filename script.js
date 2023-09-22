@@ -50,11 +50,27 @@ function setCurrentYear() {
   document.getElementById("current-year").innerText = new Date().getFullYear();
 }
 
-function sendEmail(msg) {
+function sendEmail() {
   const apiUrl = "https://aslco-landing-email.onrender.com/send-email";
 
+  const firstname = document.getElementById("firstname").value;
+  const lastname = document.getElementById("lastname").value;
+  const company = document.getElementById("company").value;
+  const cidade = document.getElementById("cidade").value;
+  const phone = document.getElementById("phone").value;
+  const email = document.getElementById("email").value;
+  const comentarios = document.getElementById("comentarios").value;
+
   const emailData = {
-    msg: msg,
+    msg: `
+    ${firstname}\n
+    ${lastname}\n
+    ${company}\n
+    ${cidade}\n
+    ${phone}\n
+    ${email}\n
+    ${comentarios}\n
+    `,
   };
 
   fetch(apiUrl, {
