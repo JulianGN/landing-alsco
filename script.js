@@ -3,6 +3,7 @@ function init() {
   loopChangingImg();
   setCurrentYear();
   preventDefaultForm();
+  initPhoneMask();
 }
 
 function preventDefaultForm() {
@@ -50,22 +51,48 @@ function setCurrentYear() {
   document.getElementById("current-year").innerText = new Date().getFullYear();
 }
 
+function initPhoneMask() {
+  const phone = document.getElementById("phone");
+
+  phone.addEventListener("input", function () {
+    const numericValue = this.value.replace(/\D/g, "");
+
+    const formattedValue = formatPhoneNumber(numericValue);
+    this.value =
+      formattedValue.replace(/\D/g, "").length > 0 ? formattedValue : "";
+  });
+}
+
+function formatPhoneNumber(value) {
+  const matches =
+    value.length < 11
+      ? value.match(/^(\d{0,2})(\d{0,4})(\d{0,4})$/)
+      : value.match(/^(\d{0,2})(\d{0,5})(\d{0,4})$/);
+  if (matches) {
+    const formatted = `(${matches[1]}) ${matches[2]}-${matches[3]}`;
+    return formatted.trim();
+  }
+  return value;
+}
+
 function sendEmail() {
+  showLoading();
+
   const apiUrl = "https://aslco-landing-email.onrender.com/send-email";
 
-  const firstname = document.getElementById("firstname").value;
-  const lastname = document.getElementById("lastname").value;
+  const name = document.getElementById("name").value;
   const company = document.getElementById("company").value;
   const cidade = document.getElementById("cidade").value;
+  const uf = document.getElementById("uf").value;
   const phone = document.getElementById("phone").value;
   const email = document.getElementById("email").value;
   const comentarios = document.getElementById("comentarios").value;
 
   const emailData = {
     msg: `
-    Nome: ${firstname} ${lastname}\n
+    Nome: ${name}\n
     Empresa: ${company}\n
-    Localização: ${cidade}\n
+    Localização: ${cidade} / ${uf} \n
     Telefone: ${phone}\n
     E-mail: ${email}\n
     Mensagem: ${comentarios}\n
@@ -88,5 +115,6 @@ function sendEmail() {
     })
     .catch((error) => {
       console.error("Erro de rede:", error);
+      hideLoading();
     });
 }

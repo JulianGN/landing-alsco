@@ -144,36 +144,73 @@
               obrigatórios.
             </p>
             <form
-              class="hero-form"
+              class="hero-form row"
               id="form-landing"
               name="formlanding"
               onsubmit="enviarFormulario()"
             >
-              <div class="col-md-6 flex-column">
-                <label class="input-required" for="firstname"> Nome </label>
-                <input required type="text" name="firstname" id="firstname" />
-              </div>
-              <div class="col-md-6 flex-column">
-                <label class="input-required" for="lastname">Sobrenome</label>
-                <input required type="text" name="lastname" id="lastname" />
+              <div class="col-md-12 flex-column">
+                <label class="input-required" for="name">Nome </label>
+                <input required type="text" name="name" id="name" />
               </div>
               <div class="col-md-6 flex-column">
                 <label class="input-required" for="company">Empresa</label>
                 <input required type="text" name="company" id="company" />
               </div>
-              <div class="col-md-6 flex-column">
-                <label class="input-required" for="cidade">Cidade / UF</label>
+              <div class="col-md-4 flex-column">
+                <label class="input-required" for="cidade">Cidade</label>
                 <input required type="text" name="cidade" id="cidade" />
               </div>
+              <div class="col-md-2 flex-column">
+                <label class="input-required" for="uf">UF</label>
+                <select required name="uf" id="uf">
+                  <option value="">UF</option>
+                  <option value="AC">AC</option>
+                  <option value="AL">AL</option>
+                  <option value="AP">AP</option>
+                  <option value="AM">AM</option>
+                  <option value="BA">BA</option>
+                  <option value="CE">CE</option>
+                  <option value="DF">DF</option>
+                  <option value="ES">ES</option>
+                  <option value="GO">GO</option>
+                  <option value="MA">MA</option>
+                  <option value="MS">MS</option>
+                  <option value="MT">MT</option>
+                  <option value="MG">MG</option>
+                  <option value="PA">PA</option>
+                  <option value="PB">PB</option>
+                  <option value="PR">PR</option>
+                  <option value="PE">PE</option>
+                  <option value="PI">PI</option>
+                  <option value="RJ">RJ</option>
+                  <option value="RN">RN</option>
+                  <option value="RS">RS</option>
+                  <option value="RO">RO</option>
+                  <option value="RR">RR</option>
+                  <option value="SC">SC</option>
+                  <option value="SP">SP</option>
+                  <option value="SE">SE</option>
+                  <option value="TO">TO</option>
+                </select>
+              </div>
               <div class="col-md-6 flex-column">
-                <label class="input-required" for="phone">Telefone</label>
-                <input required type="tel" name="phone" id="phone" />
+                <label class="input-required" for="phone"
+                  >Telefone (com DDD)</label
+                >
+                <input
+                  required
+                  type="tel"
+                  name="phone"
+                  id="phone"
+                  maxlength="15"
+                />
               </div>
               <div class="col-md-6 flex-column">
                 <label class="input-required" for="email">E-mail</label>
                 <input required type="mail" name="email" id="email" />
               </div>
-              <div class="w-100 flex-column">
+              <div class="col-md-12 flex-column">
                 <label class="input-required" for="comentarios"
                   >Comentários</label
                 >
@@ -184,7 +221,7 @@
                 ></textarea>
               </div>
 
-              <div class="w-100 text-right mt-2">
+              <div class="col-md-12 text-right">
                 <button type="submit" class="btn btn-white">
                   Fale com especialista
                 </button>
