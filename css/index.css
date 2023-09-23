@@ -141,7 +141,6 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 1rem;
   border-top: 10px solid var(--verde);
   background-color: white;
   padding: 5rem 2rem;
@@ -165,7 +164,6 @@
 
 .servicos {
   display: flex;
-  gap: 1rem;
 }
 
 .servicos > div,
@@ -249,11 +247,14 @@
 
 footer {
   background-color: var(--verde-escuro);
+  padding: 1rem;
+}
+
+footer > p {
   color: white;
   text-align: center;
   line-height: 1.35rem;
   font-size: var(--small);
-  padding: 1rem;
 }
 
 #loading {
