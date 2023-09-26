@@ -21,7 +21,7 @@
 }
 
 .container-images-top .image-top {
-  width: calc(100% / 6);
+  width: calc(100% / 7);
   z-index: 3;
   text-align: center;
 }
@@ -73,7 +73,7 @@
 }
 
 .hero-title {
-  padding: calc(60vw / 6) 2rem 2rem 2rem;
+  padding: calc(60vw / 4) 2rem 2rem 2rem;
   width: 60%;
   z-index: 2;
 }
@@ -105,6 +105,10 @@
 .containeir-logo {
   padding: 1rem;
   text-align: center;
+  height: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
 .containeir-logo img {
@@ -408,6 +412,7 @@ p {
     left: 40vw;
     right: 1rem;
     top: 2rem;
+    justify-content: end;
   }
 
   .servicos {
