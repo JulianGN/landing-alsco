@@ -92,9 +92,10 @@ function sendEmail() {
     msg: `
     Nome: ${name}\n
     Empresa: ${company}\n
-    Localização: ${cidade} / ${uf} \n
+    Cidade: ${cidade} / ${uf} \n
+    Estado: ${uf} \n
     Telefone: ${phone}\n
-    E-mail: ${email}\n
+    ${email}\n
     Mensagem: ${comentarios}\n
     `,
   };

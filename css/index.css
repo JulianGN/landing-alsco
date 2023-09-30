@@ -120,7 +120,6 @@
 .container-hero-form {
   background-color: var(--verde);
   padding: 1rem;
-  min-height: 50vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -133,9 +132,14 @@
 }
 
 .hero-form-info {
-  font-size: var(--small);
-  margin-bottom: 1rem;
+  font-size: 1.15rem;
+  line-height: 1.25;
+  margin: 1rem 0.5rem;
   color: white;
+}
+
+.hero-footer {
+  font-size: var(--small);
 }
 
 .hero-form button {
@@ -373,6 +377,10 @@ button {
 
 p {
   text-align: justify;
+}
+
+strong {
+  font-weight: 600;
 }
 
 .btn {
