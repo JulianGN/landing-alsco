@@ -2,16 +2,7 @@ function init() {
   hideLoading();
   loopChangingImg();
   setCurrentYear();
-  preventDefaultForm();
   initPhoneMask();
-}
-
-function preventDefaultForm() {
-  document
-    .getElementById("form-landing")
-    .addEventListener("submit", function (event) {
-      event.preventDefault();
-    });
 }
 
 function voltarFormulario() {
@@ -19,7 +10,13 @@ function voltarFormulario() {
 }
 
 function enviarFormulario() {
-  sendEmail();
+  const isValid = validate();
+
+  if (!isValid) {
+    return false;
+  }
+
+  return true;
 }
 
 function showLoading() {
@@ -75,47 +72,86 @@ function formatPhoneNumber(value) {
   return value;
 }
 
-function sendEmail() {
+function validate() {
   showLoading();
 
-  // const apiUrl = "https://aslco-landing-email.onrender.com/send-email";
+  const name = document.getElementById("name").value;
+  const company = document.getElementById("company").value;
+  const cidade = document.getElementById("cidade").value;
+  const uf = document.getElementById("uf").value;
+  const phone = document.getElementById("phone").value;
+  const email = document.getElementById("email").value;
+  const comentarios = document.getElementById("comentarios").value;
 
-  // const name = document.getElementById("name").value;
-  // const company = document.getElementById("company").value;
-  // const cidade = document.getElementById("cidade").value;
-  // const uf = document.getElementById("uf").value;
-  // const phone = document.getElementById("phone").value;
-  // const email = document.getElementById("email").value;
-  // const comentarios = document.getElementById("comentarios").value;
+  if (
+    !validateName(name) ||
+    !validateCompany(company) ||
+    !validateCidade(cidade) ||
+    !validateUF(uf) ||
+    !validatePhone(phone) ||
+    !validateEmail(email) ||
+    !validateComentarios(comentarios)
+  ) {
+    hideLoading();
+    return false;
+  }
 
-  // const emailData = {
-  //   msg: `
-  //   Nome: ${name}\n
-  //   Empresa: ${company}\n
-  //   Cidade: ${cidade} / ${uf} \n
-  //   Estado: ${uf} \n
-  //   Telefone: ${phone}\n
-  //   ${email}\n
-  //   Mensagem: ${comentarios}\n
-  //   `,
-  // };
+  return true;
+}
 
-  // fetch(apiUrl, {
-  //   method: "POST",
-  //   headers: {
-  //     "Content-Type": "application/json",
-  //   },
-  //   body: JSON.stringify(emailData),
-  // })
-  //   .then((response) => {
-  //     if (response.ok) {
-  //       window.location.href = "./email-enviado.html";
-  //     } else {
-  //       console.error("Erro ao enviar o e-mail");
-  //     }
-  //   })
-  //   .catch((error) => {
-  //     console.error("Erro de rede:", error);
-  //     hideLoading();
-  //   });
+function validateName(name) {
+  if (name.length < 3 || /^\d/.test(name)) {
+    alert("Nome precisa ter ao menos 3 caracteres e começar com letras.");
+    return false;
+  }
+  return true;
+}
+
+function validateCompany(company) {
+  if (company.length < 3) {
+    alert("Empresa precisa ter ao menos 3 letras.");
+    return false;
+  }
+  return true;
+}
+
+function validateCidade(cidade) {
+  if (cidade.length < 3 || /^\d/.test(cidade)) {
+    alert("Cidade precisa ter ao menos 3 caracteres e começar com letras.");
+    return false;
+  }
+  return true;
+}
+
+function validateUF(uf) {
+  if (uf.length !== 2) {
+    alert("UF precisa ter 2 caracteres.");
+    return false;
+  }
+  return true;
+}
+
+function validatePhone(phone) {
+  if (!/^[0-9 ()-]*$/.test(phone)) {
+    alert("Verifique o telefone.");
+    return false;
+  }
+  return true;
+}
+
+function validateEmail(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    alert("Verifique o e-mail inserido.");
+    return false;
+  }
+  return true;
+}
+
+function validateComentarios(comentarios) {
+  if (comentarios.length < 3) {
+    alert("Por favor, detalhe mais sua mensagem.");
+    return false;
+  }
+  return true;
 }

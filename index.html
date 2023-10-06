@@ -150,12 +150,13 @@
             </p>
             <form
               class="hero-form"
-              id="form-landing"
-              name="formlanding"
-              onsubmit="enviarFormulario()"
-              action="../v1/enviar/envia_landing.php"
+              onsubmit="return enviarFormulario();"
               method="post"
+              action="../v1/enviar/envia_landing.php"
               name="form_contato"
+              target="_self"
+              id="form_contato"
+              enctype="multipart/form-data"
             >
               <div class="col-md-12 flex-column">
                 <label class="input-required" for="name">Nome </label>
