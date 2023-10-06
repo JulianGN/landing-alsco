@@ -78,44 +78,44 @@ function formatPhoneNumber(value) {
 function sendEmail() {
   showLoading();
 
-  const apiUrl = "https://aslco-landing-email.onrender.com/send-email";
+  // const apiUrl = "https://aslco-landing-email.onrender.com/send-email";
 
-  const name = document.getElementById("name").value;
-  const company = document.getElementById("company").value;
-  const cidade = document.getElementById("cidade").value;
-  const uf = document.getElementById("uf").value;
-  const phone = document.getElementById("phone").value;
-  const email = document.getElementById("email").value;
-  const comentarios = document.getElementById("comentarios").value;
+  // const name = document.getElementById("name").value;
+  // const company = document.getElementById("company").value;
+  // const cidade = document.getElementById("cidade").value;
+  // const uf = document.getElementById("uf").value;
+  // const phone = document.getElementById("phone").value;
+  // const email = document.getElementById("email").value;
+  // const comentarios = document.getElementById("comentarios").value;
 
-  const emailData = {
-    msg: `
-    Nome: ${name}\n
-    Empresa: ${company}\n
-    Cidade: ${cidade} / ${uf} \n
-    Estado: ${uf} \n
-    Telefone: ${phone}\n
-    ${email}\n
-    Mensagem: ${comentarios}\n
-    `,
-  };
+  // const emailData = {
+  //   msg: `
+  //   Nome: ${name}\n
+  //   Empresa: ${company}\n
+  //   Cidade: ${cidade} / ${uf} \n
+  //   Estado: ${uf} \n
+  //   Telefone: ${phone}\n
+  //   ${email}\n
+  //   Mensagem: ${comentarios}\n
+  //   `,
+  // };
 
-  fetch(apiUrl, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(emailData),
-  })
-    .then((response) => {
-      if (response.ok) {
-        window.location.href = "./email-enviado.html";
-      } else {
-        console.error("Erro ao enviar o e-mail");
-      }
-    })
-    .catch((error) => {
-      console.error("Erro de rede:", error);
-      hideLoading();
-    });
+  // fetch(apiUrl, {
+  //   method: "POST",
+  //   headers: {
+  //     "Content-Type": "application/json",
+  //   },
+  //   body: JSON.stringify(emailData),
+  // })
+  //   .then((response) => {
+  //     if (response.ok) {
+  //       window.location.href = "./email-enviado.html";
+  //     } else {
+  //       console.error("Erro ao enviar o e-mail");
+  //     }
+  //   })
+  //   .catch((error) => {
+  //     console.error("Erro de rede:", error);
+  //     hideLoading();
+  //   });
 }

@@ -153,18 +153,39 @@
               id="form-landing"
               name="formlanding"
               onsubmit="enviarFormulario()"
+              action="../v1/enviar/envia_landing.php"
+              method="post"
+              name="form_contato"
             >
               <div class="col-md-12 flex-column">
                 <label class="input-required" for="name">Nome </label>
-                <input required type="text" name="name" id="name" />
+                <input
+                  required
+                  type="text"
+                  name="name"
+                  id="name"
+                  maxlength="100"
+                />
               </div>
               <div class="col-md-6 flex-column">
                 <label class="input-required" for="company">Empresa</label>
-                <input required type="text" name="company" id="company" />
+                <input
+                  required
+                  type="text"
+                  name="company"
+                  id="company"
+                  maxlength="50"
+                />
               </div>
               <div class="col-md-4 flex-column">
                 <label class="input-required" for="cidade">Cidade</label>
-                <input required type="text" name="cidade" id="cidade" />
+                <input
+                  required
+                  type="text"
+                  name="cidade"
+                  id="cidade"
+                  maxlength="50"
+                />
               </div>
               <div class="col-md-2 flex-column">
                 <label class="input-required" for="uf">UF</label>
@@ -223,6 +244,7 @@
                   required
                   name="comentarios"
                   id="comentarios"
+                  maxlength="1024"
                 ></textarea>
               </div>
 
