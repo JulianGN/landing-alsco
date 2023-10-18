@@ -81,6 +81,7 @@ function validate() {
   const uf = document.getElementById("uf").value;
   const phone = document.getElementById("phone").value;
   const email = document.getElementById("email").value;
+  const departamento = document.getElementById("departamento").value;
   const comentarios = document.getElementById("comentarios").value;
 
   if (
@@ -90,6 +91,7 @@ function validate() {
     !validateUF(uf) ||
     !validatePhone(phone) ||
     !validateEmail(email) ||
+    !validateDepartamento(departamento) ||
     !validateComentarios(comentarios)
   ) {
     hideLoading();
@@ -143,6 +145,14 @@ function validateEmail(email) {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(email)) {
     alert("Verifique o e-mail inserido.");
+    return false;
+  }
+  return true;
+}
+
+function validateDepartamento(departamento) {
+  if (!departamento) {
+    alert("Selecione um departamento");
     return false;
   }
   return true;
