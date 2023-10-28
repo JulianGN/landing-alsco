@@ -148,16 +148,7 @@
               <strong>Interessados nas soluções da Alsco?</strong> Preencha este
               formulário e entraremos em contato com você em breve.
             </p>
-            <form
-              class="hero-form"
-              onsubmit="return enviarFormulario();"
-              method="post"
-              action="../v1/enviar/envia_landing.php"
-              name="form_contato"
-              target="_self"
-              id="form_contato"
-              enctype="multipart/form-data"
-            >
+            <form class="hero-form" name="form-landing" id="form-landing">
               <div class="col-md-12 flex-column">
                 <label class="input-required" for="name">Nome </label>
                 <input
@@ -263,7 +254,7 @@
               </div>
 
               <div class="col-md-12 text-right">
-                <button type="submit" class="btn btn-white">
+                <button onclick="enviarFormulario()" class="btn btn-white">
                   Fale com especialista
                 </button>
               </div>

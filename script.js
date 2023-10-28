@@ -3,18 +3,58 @@ function init() {
   loopChangingImg();
   setCurrentYear();
   initPhoneMask();
+  preventDefaultForm();
 }
 
 function voltarFormulario() {
   window.scrollTo(0, 0);
 }
 
+function preventDefaultForm() {
+  document
+    .getElementById("form-landing")
+    .addEventListener("submit", function (event) {
+      event.preventDefault();
+    });
+}
+
 function enviarFormulario() {
-  const isValid = validate();
+  const payload = {
+    nome: document.getElementById("name").value,
+    email: document.getElementById("email").value,
+    empresa: document.getElementById("company").value,
+    dddtelefone: document.getElementById("phone").value,
+    cidade: document.getElementById("cidade").value,
+    estado: document.getElementById("uf").value,
+    departamento: document.getElementById("departamento").value,
+    mensagem: document.getElementById("comentarios").value,
+  };
+  showLoading();
+  const isValid = validate(payload);
 
   if (!isValid) {
+    hideLoading();
     return false;
   }
+
+  fetch("https://alscodvs.azurewebsites.net/api/publicmarketing", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload),
+  })
+    .then((response) => {
+      if (response.ok) {
+        window.location.href = "./email-enviado.html";
+      } else {
+        console.error("Erro ao enviar o e-mail");
+      }
+    })
+    .catch((error) => {
+      console.error("Erro de rede:", error);
+      hideLoading();
+    });
 
   return true;
 }
@@ -72,29 +112,26 @@ function formatPhoneNumber(value) {
   return value;
 }
 
-function validate() {
-  showLoading();
-
-  const name = document.getElementById("name").value;
-  const company = document.getElementById("company").value;
-  const cidade = document.getElementById("cidade").value;
-  const uf = document.getElementById("uf").value;
-  const phone = document.getElementById("phone").value;
-  const email = document.getElementById("email").value;
-  const departamento = document.getElementById("departamento").value;
-  const comentarios = document.getElementById("comentarios").value;
-
+function validate({
+  nome,
+  email,
+  empresa,
+  dddtelefone,
+  cidade,
+  estado,
+  departamento,
+  mensagem,
+}) {
   if (
-    !validateName(name) ||
-    !validateCompany(company) ||
+    !validateName(nome) ||
+    !validateCompany(empresa) ||
     !validateCidade(cidade) ||
-    !validateUF(uf) ||
-    !validatePhone(phone) ||
+    !validateUF(estado) ||
+    !validatePhone(dddtelefone) ||
     !validateEmail(email) ||
     !validateDepartamento(departamento) ||
-    !validateComentarios(comentarios)
+    !validateComentarios(mensagem)
   ) {
-    hideLoading();
     return false;
   }
 
