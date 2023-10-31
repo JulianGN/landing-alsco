@@ -66,10 +66,29 @@
   padding: 1rem;
 }
 
+.hero-green-words > div {
+  overflow: hidden;
+}
+
+.hero-green-words > div > div {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -1.5rem;
+}
+
 .hero-green-words span {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   white-space: nowrap;
   padding: 0.25rem 0.5rem;
+  gap: 1rem;
+}
+
+.hero-green-words span::before {
+  content: "\2022";
+  font-size: 2rem;
+  line-height: 0.75rem;
+  margin-bottom: -0.25rem;
 }
 
 .hero-title {
