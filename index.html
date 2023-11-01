@@ -106,7 +106,6 @@
               <img
                 src="./imagens/FotoElipse6.png"
                 alt="Rastreabilidade por chip RFID"
-                onload="init()"
               />
             </div>
           </div>
@@ -177,16 +176,6 @@
                   maxlength="50"
                 />
               </div>
-              <div class="col-md-4 flex-column">
-                <label class="input-required" for="cidade">Cidade</label>
-                <input
-                  required
-                  type="text"
-                  name="cidade"
-                  id="cidade"
-                  maxlength="50"
-                />
-              </div>
               <div class="col-md-2 flex-column">
                 <label class="input-required" for="uf">UF</label>
                 <select required name="uf" id="uf">
@@ -218,6 +207,12 @@
                   <option value="SP">SP</option>
                   <option value="SE">SE</option>
                   <option value="TO">TO</option>
+                </select>
+              </div>
+              <div class="col-md-4 flex-column">
+                <label class="input-required" for="cidade">Cidade</label>
+                <select required name="cidade" id="cidade" disabled>
+                  <option value="">Selecione UF</option>
                 </select>
               </div>
               <div class="col-md-6 flex-column">

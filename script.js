@@ -1,10 +1,14 @@
-function init() {
+const estados = [];
+
+document.addEventListener("DOMContentLoaded", async function (e) {
+  await loadCities();
   hideLoading();
   loopChangingImg();
   setCurrentYear();
   initPhoneMask();
   preventDefaultForm();
-}
+  watchUfSelect();
+});
 
 function voltarFormulario() {
   window.scrollTo(0, 0);
@@ -156,7 +160,7 @@ function validateCompany(company) {
 
 function validateCidade(cidade) {
   if (cidade.length < 3 || /^\d/.test(cidade)) {
-    alert("Cidade precisa ter ao menos 3 caracteres e começar com letras.");
+    alert("Selecione uma cidade");
     return false;
   }
   return true;
@@ -201,4 +205,35 @@ function validateComentarios(comentarios) {
     return false;
   }
   return true;
+}
+
+async function loadCities() {
+  await fetch("./data/estados-cidades.json")
+    .then((json) => json.json())
+    .then((states) => estados.push(...states.estados));
+
+  console.log(estados);
+}
+
+function watchUfSelect() {
+  const uf = document.getElementById("uf");
+  const cidade = document.getElementById("cidade");
+
+  uf.addEventListener("change", function () {
+    const selectedUf = uf.value;
+    const selectedState = estados.find((state) => state.sigla === selectedUf);
+    const citiesOptions = [
+      `<option value="">${selectedState ? "Cidade" : "Selecione UF"}</option>`,
+    ];
+    const templateOption = (city) => `<option value="${city}">${city}</option>`;
+
+    if (selectedState) {
+      citiesOptions.push(
+        ...selectedState.cidades.map((city) => templateOption(city))
+      );
+    }
+
+    cidade.disabled = !selectedState;
+    cidade.innerHTML = citiesOptions;
+  });
 }

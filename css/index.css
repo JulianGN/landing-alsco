@@ -392,6 +392,18 @@ button {
   outline: none;
   padding: 0.5rem;
   border-radius: 0.25rem;
+  outline: 2px solid transparent;
+  box-shadow: 0 0 0 var(--verde-claro);
+  transition: 0.5s;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: 2px solid var(--verde-claro);
+  box-shadow: 0 0 10px var(--verde-claro);
+  transition: 0.5s;
 }
 
 p {
@@ -478,10 +490,11 @@ strong {
     white-space: initial;
     font-size: xx-small;
     font-weight: normal;
+    padding: 0.25rem 0.15rem;
+    gap: 0.25rem;
   }
 
   .hero-green-words span:not(:first-child):before {
-    content: "";
     padding: 0 0.25rem;
   }
 

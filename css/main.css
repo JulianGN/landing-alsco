@@ -135,6 +135,7 @@ table {
 }
 
 :root {
+  --verde-claro: #2ec575;
   --verde: #01843e;
   --verde-escuro: #007034;
   --cinza: #707070;
