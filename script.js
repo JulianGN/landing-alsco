@@ -211,8 +211,6 @@ async function loadCities() {
   await fetch("./data/estados-cidades.json")
     .then((json) => json.json())
     .then((states) => estados.push(...states.estados));
-
-  console.log(estados);
 }
 
 function watchUfSelect() {
